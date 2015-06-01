@@ -45,15 +45,18 @@ void kclrscr() {
 	screen.row = 0;
 }
 
+void kprint(char *s) {
+	while (*s != '\0') {
+		kputchar(*s, 0x07);
+		s++;
+	}
+}
+
 void kmain(void) {
 	screeninit();
 	kclrscr();
 
-	kputchar('A', 0x07);	
-	kputchar('B', 0x07);
-	kputchar('\n', 0x07);
-	kputchar('C', 0x07);
-	kputchar('D', 0x07);
+	kprint("Hello World!");
 
 	return;
 }
